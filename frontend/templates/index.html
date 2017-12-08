@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    {#    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>#}
+    {#    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>#}
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+
+    {% assets 'css' %}
+        <link type="text/css" href="{{ ASSET_URL }}" rel="stylesheet"/>
+    {% endassets %}
+
+    {% assets 'js' %}
+        <script type="application/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
     <title>Bloggy McBlogFace</title>
 </head>
 <body>
-    hi
+<div id="content"></div>
 </body>
 </html>
