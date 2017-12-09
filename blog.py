@@ -19,6 +19,7 @@ assets.register('css', css_bundle)
 
 # TODO until I figure out babel and maybe webpack, i'll just list every stupid file
 js_bundle = Bundle('frontend/blog/components/post/post.js',
+                   'frontend/blog/components/comment/comment.js',
                    'frontend/blog/blog.js',
                    'frontend/index.js',
                    output='dist/index.js',
