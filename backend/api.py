@@ -53,6 +53,11 @@ def get_comments(post_id):
             'id': 1,
             'content': 'commmmmmmmmennnnnnnnnt',
             'created': '1/3/17'
+        },
+        {
+            'id': 2,
+            'content': 'butts butts butts',
+            'created': '1/3/17'
         }
     ])
 
