@@ -10,15 +10,23 @@ export default class Comments extends React.Component {
     }
 
     render() {
-        let rendering_content = [<em onClick={this.showComments}>
-            {this.state.hidden ? 'Show' : 'Hide'} {this.props.comments.length} comments
-        </em>];
-
-        if (!this.state.hidden) {
-            rendering_content.push(this.props.comments.map((comment) => <Comment key={comment.id} {...comment} />));
+        if (this.props.comments.length === 0) {
+            return <em>No comments!</em>;
         }
+        else {
+            let commentMessage = (<em onClick={this.showComments}>
+                {this.state.hidden ? 'Show' : 'Hide'} {this.props.comments.length} comments
+            </em>);
+            let renderingContent;
+            if (!this.state.hidden) {
+                renderingContent = this.props.comments.map((comment) => <Comment key={comment.id} {...comment}/>);
+            }
 
-        return <div>{rendering_content}</div>;
+            return (<div>
+                {commentMessage}
+                {renderingContent}
+            </div>);
+        }
     }
 
     showComments() {
