@@ -21,7 +21,7 @@ Figure out url changes and routing in react for single page stuff
 - Post navigation (search/by date)
 - post  snippets instead of the whole thing on the main page? (i.e. read more)
 - Paging of results - "new page" or lazy loading?
-- Design a header
+- Design a header - or a sticky sidebar?
 - The dreaded question: *do we need a footer?*
 
 #### Posts
