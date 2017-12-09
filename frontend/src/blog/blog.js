@@ -1,4 +1,8 @@
-class Blog extends React.Component {
+import * as React from 'react';
+import BlogService from "./services/blog_service";
+import Post from "./components/post/post";
+
+export default class Blog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -8,15 +12,16 @@ class Blog extends React.Component {
     }
 
     componentDidMount() {
-        $.get(`/api/blog/${this.props.id}`)
+        BlogService.getBlog(this.props.id)
             .done(this._updateBlogData.bind(this));
-        $.get(`/api/blog/${this.props.id}/post`)
+        BlogService.getPostsForBlog(this.props.id)
             .done(this._updatePostsData.bind(this));
     }
 
     render() {
         return (<div>
             <h1>{this.state.name}</h1>
+            <img src='../assets/sample_shiba_inu.bmp' />
             {this.state.posts.map((post) => <Post key={post.id} {...post}/>)}
         </div>);
     }

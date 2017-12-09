@@ -14,7 +14,7 @@ def get_blog(blog_id):
     return _dang_response_generator({'name': 'best ever blog for realsies'})
 
 
-@api_blueprint.route('/blog/<int:blog_id>/post', methods=['GET'])
+@api_blueprint.route('/blog/<int:blog_id>/posts', methods=['GET'])
 def all_posts(blog_id):
     return _dang_response_generator([
             {
@@ -35,19 +35,19 @@ def all_posts(blog_id):
             }
         ])
 
-@api_blueprint.route('/blog/<int:blog_id>/post', methods=['POST'])
+@api_blueprint.route('/blog/<int:blog_id>/posts', methods=['POST'])
 def create_post(blog_id):
     print 'okey doke'
     return 'nope'
 
 
-@api_blueprint.route('/blog/<int:blog_id>/post/<int:post_id>', methods=['GET'])
-def get_post(blog_id, post_id):
+@api_blueprint.route('/post/<int:post_id>', methods=['GET'])
+def get_post(post_id):
     print post_id
     return 'nopety nope'
 
-@api_blueprint.route('/blog/<int:blog_id>/post/<int:post_id>/comment', methods=['GET'])
-def get_comments(blog_id, post_id):
+@api_blueprint.route('/post/<int:post_id>/comments', methods=['GET'])
+def get_comments(post_id):
     return _dang_response_generator([
         {
             'id': 1,

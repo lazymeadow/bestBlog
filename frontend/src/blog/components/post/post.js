@@ -1,4 +1,9 @@
-class Post extends React.Component {
+import * as React from 'react';
+import BlogService from "../../services/blog_service";
+import Comments from "../comment/comment";
+
+
+export default class Post extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -7,7 +12,7 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        $.get('/api/blog/1/post/1/comment')
+        BlogService.getCommentsForPost(this.props.id)
             .done(this._updateCommentData.bind(this));
     }
 

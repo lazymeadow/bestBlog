@@ -3,7 +3,8 @@ from jinja2 import TemplateNotFound
 
 frontend_blueprint = Blueprint('frontend', __name__,
                                template_folder='templates',
-                               static_folder='src')
+                               static_folder='src',
+                               static_url_path='')
 
 
 @frontend_blueprint.route('/')
