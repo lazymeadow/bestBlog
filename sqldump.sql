@@ -41,11 +41,11 @@ DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` varchar(64) NOT NULL,
-  `name` varchar(128) NOT NULL,
+  `author` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `blog_id_uindex` (`id`),
-  KEY `blog_user_username_fk` (`owner`),
-  CONSTRAINT `blog_user_username_fk` FOREIGN KEY (`owner`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `blog_user_username_fk` (`author`),
+  CONSTRAINT `blog_user_username_fk` FOREIGN KEY (`author`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
