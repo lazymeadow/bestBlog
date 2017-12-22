@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import BlogService from "./services/blog_service";
 import Post from "./components/post/post";
 
@@ -21,7 +22,7 @@ export default class Blog extends React.Component {
     render() {
         return (<div>
             <h1>{this.state.name}</h1>
-            <img src='../assets/sample_shiba_inu.bmp' />
+            <img src='../assets/sample_shiba_inu.bmp'/>
             {this.state.posts.map((post) => <Post key={post.id} {...post}/>)}
         </div>);
     }

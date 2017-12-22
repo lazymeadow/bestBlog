@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort, make_response, jsonify
+from flask import Blueprint, render_template, abort, make_response, jsonify, request
 from jinja2 import TemplateNotFound
 
 api_blueprint = Blueprint('api_blueprint', __name__,
@@ -8,6 +8,14 @@ api_blueprint = Blueprint('api_blueprint', __name__,
 @api_blueprint.route('/', methods=['GET'])
 def show():
     return make_response(jsonify({'face': 'foot'}))
+
+
+@api_blueprint.route('/login', methods=['POST'])
+def post_login():
+    if 'username' in request.form.keys() and 'password' in request.form.keys() and request.form[
+        'username'] == 'face' and request.form['password'] == 'foot123':
+        return _dang_response_generator({'success': True})
+    return _dang_response_generator({'error': 'Invalid credentials'}, 401)
 
 
 @api_blueprint.route('/blog/<int:blog_id>', methods=['GET'])
@@ -67,5 +75,5 @@ def get_comments(post_id):
     return _dang_response_generator([])
 
 
-def _dang_response_generator(data):
-    return make_response(jsonify({'data': data}))
+def _dang_response_generator(data, response_code=200):
+    return make_response(jsonify({'data': data}), response_code)
