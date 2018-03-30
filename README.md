@@ -8,7 +8,7 @@ gonna need some pip stuff:
 
 we got us some npm now, so see here first we do an `npm install`
 
-and then we do a dang ole `npm build`
+and then we do a dang ole `npm run build`
 
 and then we make it do a `python blog.py` if you don't want none of that terminal to be available no more
 

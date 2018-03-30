@@ -1,9 +1,12 @@
 import * as React from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import BlogService from "./services/blog_service";
 import Post from "./components/post/post";
+import {thunks as loginThunks} from "../../store/login/actions";
 
-export default class Blog extends React.Component {
+class Blog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +25,7 @@ export default class Blog extends React.Component {
     render() {
         return (<div>
             <h1>{this.state.name}</h1>
-            <img src='../assets/sample_shiba_inu.bmp'/>
+            <img src='../../assets/sample_shiba_inu.bmp'/>
             {this.state.posts.map((post) => <Post key={post.id} {...post}/>)}
         </div>);
     }
@@ -35,3 +38,14 @@ export default class Blog extends React.Component {
         this.setState({name});
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {};
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Blog));

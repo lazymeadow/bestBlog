@@ -1,4 +1,12 @@
 {
-  "presets": ["react"],
-  "sourceMaps": true
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-es3-member-expression-literals",
+      "transform-es3-property-literals"
+    ]
 }
