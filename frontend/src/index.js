@@ -15,8 +15,10 @@ import {thunks as loginThunks} from "./store/login/actions";
 
 
 const store = configureStore({
-    blog: {},
-    loggedIn: false
+    // blog: {},
+    login: {
+        loggedIn: false
+    }
 });
 
 

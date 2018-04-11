@@ -1,10 +1,7 @@
 import * as React from 'react';
 import {Redirect, withRouter} from "react-router-dom";
-import createHistory from "history/createBrowserHistory"
 import {connect} from "react-redux";
 import {thunks as loginThunks} from "../../store/login/actions";
-
-const history = createHistory();
 
 class Login extends React.Component {
     constructor(props) {
@@ -12,12 +9,13 @@ class Login extends React.Component {
         this.state = {
             username: '',
             password: '',
-            errorMessage: ''
+            errorMessage: '',
+            redirect: false
         };
     }
 
     render() {
-        if (this.props.loggedIn) {
+        if (this.props.loggedIn && this.state.redirect) {
             return (<Redirect to={{
                 pathname: '/dashboard'
             }}/>);
@@ -29,7 +27,7 @@ class Login extends React.Component {
             <label htmlFor="password">Password</label>
             <input id="password" type="password" value={this.state.password} onChange={this.changeHandler.bind(this)}/>
             <button type="button" onClick={() => {
-                return this.props.login(this.state.username, this.state.password).then(history.push('/dashboard', {}));
+                return this.props.login(this.state.username, this.state.password).then(() => this.setState({redirect: true}));
             }}>Login</button>
         </div>);
     }
@@ -41,7 +39,7 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loggedIn: state.loggedIn
+        loggedIn: state.login.loggedIn
     };
 };
 

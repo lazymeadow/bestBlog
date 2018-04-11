@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 
 
 const mapStateToProps = (state) => {
     return {
-        loggedIn: state.loggedIn
+        loggedIn: state.login.loggedIn
     };
 };
 
