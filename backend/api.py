@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, abort, make_response, jsonify, request
-from jinja2 import TemplateNotFound
+from flask import Blueprint, make_response, jsonify, request
+
+from backend.lib import mysql, mysql_execute
 
 api_blueprint = Blueprint('api_blueprint', __name__,
                           template_folder='./templates')
@@ -12,6 +13,7 @@ def show():
 
 @api_blueprint.route('/login', methods=['POST'])
 def post_login():
+    print mysql_execute("SELECT * FROM user WHERE username = %s", 'audrey')
     if 'username' in request.form.keys() and 'password' in request.form.keys() and request.form[
         'username'] == 'face' and request.form['password'] == 'foot123':
         return _dang_response_generator({'success': True})
